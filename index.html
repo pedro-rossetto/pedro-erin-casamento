@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro & Erin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="site-header">
+  <div class="monogram">P<span class="amp">&amp;</span>E</div>
+  <nav class="lang-toggle" aria-label="Idioma / Language">
+    <button type="button" data-lang-btn="pt" class="active">PT</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-lang-btn="en">EN</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow" data-i18n="hero.eyebrow">Vamos nos casar</p>
+    <h1 class="hero-title">Pedro <span class="amp">&amp;</span> Erin</h1>
+    <p class="hero-date">20 <span data-i18n="hero.dateJoin">de</span> junho <span data-i18n="hero.dateJoin2">de</span> 2027</p>
+    <a href="#rsvp" class="hero-cta" data-i18n="hero.cta">Confirmar presença</a>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="story-inner">
+      <p class="section-label" data-i18n="story.label">Nossa história</p>
+      <h2 data-i18n="story.title">Como tudo começou</h2>
+      <p class="story-text" data-i18n="story.text">
+        [Placeholder — troquem por sua história real] Pedro e Erin se conheceram em uma tarde comum que se tornou extraordinária.
+        O que começou como uma conversa despretensiosa virou jantares, viagens e uma cumplicidade que nenhum dos dois esperava encontrar.
+        Anos depois, entre risadas e planos feitos aos poucos, decidiram que era hora de começar o resto da vida — juntos, para sempre.
+      </p>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="details" id="details">
+    <p class="section-label" data-i18n="details.label">O grande dia</p>
+    <h2 data-i18n="details.title">Detalhes da celebração</h2>
+
+    <div class="details-grid">
+      <div class="detail-card">
+        <p class="detail-kicker" data-i18n="details.ceremony.kicker">Cerimônia</p>
+        <p class="detail-time">17:00</p>
+        <p class="detail-place" data-i18n="details.ceremony.place"> NAU Brasília — Brasília, DF</p>
+        <p class="detail-note" data-i18n="details.ceremony.note">Setor de Clubes Esportivos Sul, Asa Sul Trecho 2</p>
+      </div>
+      <div class="detail-card">
+        <p class="detail-kicker" data-i18n="details.reception.kicker">Recepção</p>
+        <p class="detail-time">18:00</p>
+        <p class="detail-place" data-i18n="details.reception.place"> NAU Brasília — Brasília, DF</p>
+        <p class="detail-note" data-i18n="details.reception.note">Setor de Clubes Esportivos Sul, Asa Sul Trecho 2</p>
+      </div>
+      <div class="detail-card">
+        <p class="detail-kicker" data-i18n="details.dress.kicker">Traje</p>
+        <p class="detail-time" data-i18n="details.dress.value">Esporte fino</p>
+        <p class="detail-place" data-i18n="details.dress.place">Evitem branco e tons muito claros</p>
+        <p class="detail-note" data-i18n="details.dress.note">[Ajustem conforme o dress code real]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp" id="rsvp">
+    <p class="section-label" data-i18n="rsvp.label">Confirmação</p>
+    <h2 data-i18n="rsvp.title">Confirme sua presença</h2>
+    <p class="rsvp-sub" data-i18n="rsvp.sub">Por favor, respondam até 20 de maio de 2027.</p>
+
+    <form id="rsvp-form" class="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="field">
+        <label for="name" data-i18n="rsvp.form.name">Nome completo</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="field">
+        <label for="email" data-i18n="rsvp.form.email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="field">
+        <label data-i18n="rsvp.form.attending">Você vai poder vir?</label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="attending" value="Sim" required>
+            <span data-i18n="rsvp.form.yes">Sim, estarei lá!</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attending" value="Não" required>
+            <span data-i18n="rsvp.form.no">Infelizmente não poderei ir</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="guests" data-i18n="rsvp.form.guests">Número de pessoas (incluindo você)</label>
+        <select id="guests" name="guests">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="dietary" data-i18n="rsvp.form.dietary">Restrições alimentares</label>
+        <input type="text" id="dietary" name="dietary" data-i18n-placeholder="rsvp.form.dietaryPlaceholder" placeholder="Vegetariano, alergias, etc. (opcional)">
+      </div>
+
+      <div class="field">
+        <label for="message" data-i18n="rsvp.form.message">Mensagem para o casal</label>
+        <textarea id="message" name="message" rows="3" data-i18n-placeholder="rsvp.form.messagePlaceholder" placeholder="Opcional"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" data-i18n="rsvp.form.submit">Enviar confirmação</button>
+      <p class="form-status" id="form-status" hidden></p>
+    </form>
+  </section>
+
+  <!-- GIFTS -->
+  <section class="gifts" id="gifts">
+    <p class="section-label" data-i18n="gifts.label">Presentes</p>
+    <h2 data-i18n="gifts.title">Lista de presentes</h2>
+    <p class="gifts-text" data-i18n="gifts.text">
+      A presença de vocês já é o maior presente. Mas para quem insistir em nos mimar,
+      preferimos receber uma contribuição via PIX para ajudar a começar essa nova fase juntos.
+    </p>
+    <div class="pix-card">
+      <p class="pix-label" data-i18n="gifts.pixLabel">Chave PIX</p>
+      <p class="pix-key">[email ou telefone] — placeholder</p>
+      <p class="pix-note" data-i18n="gifts.pixNote">[Substituam pela chave real antes de publicar]</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <p class="section-label" data-i18n="faq.label">Dúvidas</p>
+    <h2 data-i18n="faq.title">Perguntas frequentes</h2>
+
+    <div class="faq-list">
+      <details>
+        <summary data-i18n="faq.q1">Posso levar acompanhante?</summary>
+        <p data-i18n="faq.a1">[Placeholder] Reservamos lugares nominais — por favor, confirmem apenas as pessoas incluídas no convite.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q2">O casamento é kids friendly?</summary>
+        <p data-i18n="faq.a2">[Placeholder] Adoramos as crianças, mas essa será uma celebração só para adultos.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q3">Terá estacionamento no local?</summary>
+        <p data-i18n="faq.a3">[Placeholder] Sim, o local conta com estacionamento próprio / conveniado.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p class="footer-monogram">P<span class="amp">&amp;</span>E</p>
+  <p data-i18n="footer.text">Com carinho, Pedro e Erin</p>
+  <p class="footer-hashtag">#PedroEErin2027</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
