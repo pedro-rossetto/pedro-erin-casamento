@@ -1,6 +1,8 @@
 <!-- LTeX: language=pt-BR -->
 # Site do casamento — Pedro & Erin
 
+The website is <https://pedro-rossetto.github.io/pedro-erin-casamento/>.
+
 Site estático (HTML/CSS/JS puro, sem build) com seletor de idioma PT/EN e formulário de RSVP.
 
 ## Estrutura
