@@ -26,7 +26,6 @@ const translations = {
     "rsvp.form.attending": "Você vai poder vir?",
     "rsvp.form.yes": "Sim, estarei lá!",
     "rsvp.form.no": "Infelizmente não poderei ir",
-    "rsvp.form.guests": "Número de pessoas (incluindo você)",
     "rsvp.form.dietary": "Restrições alimentares",
     "rsvp.form.dietaryPlaceholder": "Vegetariano, alergias, etc. (opcional)",
     "rsvp.form.message": "Mensagem para o casal",
@@ -77,7 +76,6 @@ const translations = {
     "rsvp.form.attending": "Will you be able to make it?",
     "rsvp.form.yes": "Yes, I'll be there!",
     "rsvp.form.no": "Sadly, I can't make it",
-    "rsvp.form.guests": "Number of guests (including you)",
     "rsvp.form.dietary": "Dietary restrictions",
     "rsvp.form.dietaryPlaceholder": "Vegetarian, allergies, etc. (optional)",
     "rsvp.form.message": "Message for the couple",
@@ -122,6 +120,7 @@ function applyLanguage(lang) {
   });
   localStorage.setItem("wedding-lang", lang);
   window.__currentLang = lang;
+  if (typeof refreshStatus === "function") refreshStatus();
 }
 
 document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
@@ -132,15 +131,46 @@ const savedLang = localStorage.getItem("wedding-lang");
 const browserLang = navigator.language && navigator.language.toLowerCase().startsWith("pt") ? "pt" : "en";
 applyLanguage(savedLang || browserLang);
 
-// RSVP submit via Formspree (AJAX so we can show a message in the current language)
+// RSVP submit via Web3Forms (AJAX so we can show a message in the current language)
 const form = document.getElementById("rsvp-form");
 const status = document.getElementById("form-status");
+const submitBtn = form.querySelector(".submit-btn");
+
+// Guarda a chave do status atual para retraduzir ao trocar de idioma
+var statusKey = null; // var (e não let): applyLanguage() já roda acima e chama refreshStatus()
+function setStatus(key) {
+  statusKey = key;
+  refreshStatus();
+}
+function refreshStatus() {
+  if (!statusKey) return;
+  const lang = window.__currentLang || "pt";
+  status.hidden = false;
+  status.textContent = translations[lang][statusKey];
+}
+
+// Esconde número de pessoas e restrições alimentares quando a resposta é "Não"
+const attendingOnly = form.querySelectorAll(".attending-only");
+function updateAttendingFields() {
+  const checked = form.querySelector('input[name="attending"]:checked');
+  const notComing = checked && checked.value === "Não";
+  attendingOnly.forEach((el) => {
+    el.hidden = notComing;
+    el.querySelectorAll("input, select").forEach((input) => {
+      input.disabled = notComing; // campos desativados não são enviados
+    });
+  });
+}
+form.querySelectorAll('input[name="attending"]').forEach((radio) => {
+  radio.addEventListener("change", updateAttendingFields);
+});
+form.addEventListener("reset", () => setTimeout(updateAttendingFields, 0));
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const lang = window.__currentLang || "pt";
-  status.hidden = false;
-  status.textContent = translations[lang]["rsvp.form.sending"];
+  if (submitBtn.disabled) return;
+  submitBtn.disabled = true;
+  setStatus("rsvp.form.sending");
 
   try {
     const response = await fetch(form.action, {
@@ -148,13 +178,17 @@ form.addEventListener("submit", async (e) => {
       body: new FormData(form),
       headers: { Accept: "application/json" },
     });
-    if (response.ok) {
-      status.textContent = translations[lang]["rsvp.form.success"];
+    // O Web3Forms responde com JSON: { success: true | false, ... }
+    const result = await response.json();
+    if (response.ok && result.success) {
+      setStatus("rsvp.form.success");
       form.reset();
     } else {
-      status.textContent = translations[lang]["rsvp.form.error"];
+      setStatus("rsvp.form.error");
     }
   } catch (err) {
-    status.textContent = translations[lang]["rsvp.form.error"];
+    setStatus("rsvp.form.error");
+  } finally {
+    submitBtn.disabled = false;
   }
 });

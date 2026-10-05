@@ -28,7 +28,7 @@
   <section class="hero">
     <p class="hero-eyebrow" data-i18n="hero.eyebrow">Vamos nos casar</p>
     <h1 class="hero-title">Pedro <span class="amp">&amp;</span> Erin</h1>
-    <p class="hero-date" data-i18n="hero.date">20 de junho de 2027</p>
+    <p class="hero-date" data-i18n="hero.date">27 de junho de 2027</p>
     <a href="#rsvp" class="hero-cta" data-i18n="hero.cta">Confirmar presença</a>
   </section>
 
@@ -78,7 +78,11 @@
     <h2 data-i18n="rsvp.title">Confirme sua presença</h2>
     <p class="rsvp-sub" data-i18n="rsvp.sub">Por favor, respondam até 20 de maio de 2027.</p>
 
-    <form id="rsvp-form" class="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form id="rsvp-form" class="rsvp-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="d49c732f-a4e0-4e15-b8c4-b47f6348876a">
+      <input type="hidden" name="subject" value="Nova confirmação de presença — Pedro & Erin">
+      <input type="hidden" name="from_name" value="Site do Casamento">
+
       <div class="field">
         <label for="name" data-i18n="rsvp.form.name">Nome completo</label>
         <input type="text" id="name" name="name" required>
@@ -103,17 +107,7 @@
         </div>
       </div>
 
-      <div class="field">
-        <label for="guests" data-i18n="rsvp.form.guests">Número de pessoas (incluindo você)</label>
-        <select id="guests" name="guests">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-        </select>
-      </div>
-
-      <div class="field">
+      <div class="field attending-only" id="field-dietary">
         <label for="dietary" data-i18n="rsvp.form.dietary">Restrições alimentares</label>
         <input type="text" id="dietary" name="dietary" data-i18n-placeholder="rsvp.form.dietaryPlaceholder" placeholder="Vegetariano, alergias, etc. (opcional)">
       </div>
@@ -123,8 +117,11 @@
         <textarea id="message" name="message" rows="3" data-i18n-placeholder="rsvp.form.messagePlaceholder" placeholder="Opcional"></textarea>
       </div>
 
+      <!-- Honeypot anti-spam do Web3Forms: deve ficar escondido -->
+      <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
+
       <button type="submit" class="submit-btn" data-i18n="rsvp.form.submit">Enviar confirmação</button>
-      <p class="form-status" id="form-status" hidden></p>
+      <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
     </form>
   </section>
 
@@ -159,7 +156,7 @@
       </details>
       <details>
         <summary data-i18n="faq.q3">Terá estacionamento no local?</summary>
-        <p data-i18n="faq.a3">[Placeholder] Sim, o local conta com estacionamento próprio / conveniado.</p>
+        <p data-i18n="faq.a3">Sim, o local conta com estacionamento próprio.</p>
       </details>
     </div>
   </section>
