@@ -3,7 +3,7 @@
 window.translations = window.translations || {};
 
 window.translations.en = {
-  "hero.eyebrow": "We're getting married",
+  "hero.eyebrow": "We're getting married (again!)",
   "hero.date": "27th of June, 2027",
   "hero.cta": "RSVP",
   "story.label": "Our story",
@@ -19,8 +19,6 @@ window.translations.en = {
   "details.reception.note": "Setor de Clubes Esportivos Sul, Asa Sul Trecho 2",
   "details.dress.kicker": "Dress code",
   "details.dress.value": "Cocktail attire",
-  "details.dress.place": "Please avoid white and very pale tones",
-  "details.dress.note": "[Adjust to your real dress code]",
   "rsvp.label": "RSVP",
   "rsvp.title": "Let us know you're coming",
   "rsvp.sub": "Please respond by May 20th, 2027.",
@@ -44,11 +42,13 @@ window.translations.en = {
   "gifts.pixNote": "[Swap in the real key before publishing]",
   "faq.label": "FAQ",
   "faq.title": "Frequently asked questions",
-  "faq.q1": "Can I bring a plus one?",
-  "faq.a1": "Seats are reserved by name — please only RSVP for guests named on your invitation.",
-  "faq.q2": "Is this wedding kid-friendly?",
-  "faq.a2": "Yes, kids up to 10 years are also invited to our wedding",
-  "faq.q3": "Is there parking at the venue?",
-  "faq.a3": "Yes, the venue has its own parking.",
+  "faq.q1": "In what language will the ceremony be held?",
+  "faq.a1": "This time, since the wedding is in Brazil, the ceremony will be in Portuguese. But we are thinking of solutions so that everyone can follow along, even if they don't speak Portuguese.",
+  "faq.q2": "Can I bring a plus one?",
+  "faq.a2": "Seats are reserved by name — please only RSVP for guests named on your invitation.",
+  "faq.q3": "Is this wedding kid-friendly?",
+  "faq.a3": "Yes, kids up to 10 years are also invited to our wedding",
+  "faq.q4": "Is there parking at the venue?",
+  "faq.a4": "Yes, the venue has its own parking.",
   "footer.text": "With love, Pedro and Erin",
 };

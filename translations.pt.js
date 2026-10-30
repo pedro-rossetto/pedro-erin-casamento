@@ -3,7 +3,7 @@
 window.translations = window.translations || {};
 
 window.translations.pt = {
-  "hero.eyebrow": "Vamos nos casar",
+  "hero.eyebrow": "Vamos nos casar (de novo!)",
   "hero.date": "27 de junho de 2027",
   "hero.cta": "Confirmar presença",
   "story.label": "Nossa história",
@@ -19,8 +19,6 @@ window.translations.pt = {
   "details.reception.note": "Setor de Clubes Esportivos Sul, Asa Sul Trecho 2",
   "details.dress.kicker": "Traje",
   "details.dress.value": "Esporte fino",
-  "details.dress.place": "Evitem branco e tons muito claros",
-  "details.dress.note": "[Ajustem conforme o dress code real]",
   "rsvp.label": "Confirmação",
   "rsvp.title": "Confirme sua presença",
   "rsvp.sub": "Por favor, respondam até 20 de maio de 2027.",
@@ -44,11 +42,13 @@ window.translations.pt = {
   "gifts.pixNote": "[Substituam pela chave real antes de publicar]",
   "faq.label": "Dúvidas",
   "faq.title": "Perguntas frequentes",
-  "faq.q1": "Posso levar acompanhante?",
-  "faq.a1": "Reservamos lugares nominais — por favor, confirmem apenas as pessoas incluídas no convite.",
-  "faq.q2": "O casamento é kids friendly?",
-  "faq.a2": "Sim, as crianças até 10 anos também estão convidadas para o casamento.",
-  "faq.q3": "Terá estacionamento no local?",
-  "faq.a3": "Sim, o local conta com estacionamento próprio.",
+  "faq.q1": "Em qual língua vai ser a cerimônia?",
+  "faq.a1": "Dessa vez, como é o casamento no Brasil, a cerimônia será em português. Mas estamos pensando em soluções para que todos possam acompanhar, mesmo que não falem português.",
+  "faq.q2": "Posso levar acompanhante?",
+  "faq.a2": "Reservamos lugares nominais — por favor, confirmem apenas as pessoas incluídas no convite.",
+  "faq.q3": "O casamento é kids friendly?",
+  "faq.a3": "Sim, as crianças até 10 anos também estão convidadas para o casamento.",
+  "faq.q4": "Terá estacionamento no local?",
+  "faq.a4": "Sim, o local conta com estacionamento próprio.",
   "footer.text": "Com carinho, Pedro e Erin",
 };
